@@ -7,4 +7,5 @@ class BaseRecord < ActiveRecord::Base
 
   # self.abstract_class = true
   # self.logger = Logger.new(File.dirname(__FILE__) + "/../log/models.log", 'daily')
+  
 end
