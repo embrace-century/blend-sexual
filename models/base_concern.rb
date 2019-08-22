@@ -1,4 +1,5 @@
 require "pry"
+require 'active_support'
 
 module BaseConcern
   extend ActiveSupport::Concern
