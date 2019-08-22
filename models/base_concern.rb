@@ -6,7 +6,8 @@ module BaseConcern
   
   class_methods do
     def setup(database_name, table_name)
-      @db ||= YAML.load_file(File.join("config", "database.yml"))["source"]
+
+      @db ||= YAML.load_file(File.join(File.dirname(__FILE__), "../config", "database.yml"))["source"]
       @db["database"] = database_name
       
       ActiveRecord::Base.establish_connection @db
