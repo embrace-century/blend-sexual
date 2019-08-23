@@ -11,8 +11,8 @@ module Diff
     target_config = args[0].split('.')
     source_config = args[1].split('.')
 
-    TargetTable.setup(target_config[0], target_config[1])
-    SourceTable.setup(source_config[0], source_config[1])
+    TargetTable.setup(target_config[0], target_config[1], "target")
+    SourceTable.setup(source_config[0], source_config[1], "source")
 
     SourceTable.run
   end
