@@ -30,8 +30,3 @@ class SourceTable < ActiveRecord::Base
     target = TargetTable.find_by(code: self.code, datatime: self.datatime)
   end
 end
-
-(1..100).each do |i|
-  printf "\r%s", "[" + "#" * i + "\s" * (100 - i) + "]" + "(#{i}/100)"
-  sleep 1
-end
