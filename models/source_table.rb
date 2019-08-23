@@ -22,7 +22,6 @@ class SourceTable < ActiveRecord::Base
       i = ((@current_count * 100 ) / @total_count).to_i
 
       printf "\r%s", "[" + "#" * i + "\s" * (100 - i) + "]" + "(#{i}/100)"
-      $stdout.flush
     end
   end
   
