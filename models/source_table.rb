@@ -12,7 +12,7 @@ class SourceTable < ActiveRecord::Base
 
     SourceTable.find_each do |source|
 
-      current_count = current_count + 1
+      @current_count = @current_count + 1
 
       target = source.load_target
       if target.attributes.reject { |k, v| "id" == k } != source.attributes.reject { |k, v| "id" == k }
