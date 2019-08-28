@@ -18,11 +18,16 @@ class SourceTable < ActiveRecord::Base
       target = source.load_target
       next if target == nil
 
-      target.attributes.reject { |k, v| "id" == k }.keys.each do |key|
+      target.attributes.reject { |k, v| ("id" == k || "uploadtime" == k) }.keys.each do |key|
         @cur = "#{target.code}-#{target.datatime}"
-      
-        if target.send(key) != source.send(key)
-          @cur = "#{@cur} #{key} (#{source.send(key)} #{target.send(key)}) "
+
+        t, s = target.send(key), source.send(key)
+        if t != s
+          if s.respond_to?('to_f')
+            @cur = "#{@cur} #{key} (#{source.send(key)} #{target.send(key)}) " if ( t != s.to_f )
+          else
+            @cur = "#{@cur} #{key} (#{source.send(key)} #{target.send(key)}) "
+          end
         end
 
         @ansAry << @cur if ("#{target.code}-#{target.datatime}" != @cur)
@@ -42,3 +47,5 @@ class SourceTable < ActiveRecord::Base
     target = TargetTable.find_by(code: self.code, datatime: self.datatime)
   end
 end
+
+# [target.send(key), source.send(key)]
