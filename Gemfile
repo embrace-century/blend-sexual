@@ -1,11 +1,11 @@
 source "https://gems.ruby-china.com/"
 
-gem 'redis'
 gem 'bunny'
-gem 'mysql2'
-gem 'rails'
 gem 'connection_pool'
+gem 'pg', '~> 1.2', '>= 1.2.3'
+gem 'rails'
+gem 'redis'
 
 # Debug & Test
-gem 'rspec'
 gem 'pry'
+gem 'rspec'

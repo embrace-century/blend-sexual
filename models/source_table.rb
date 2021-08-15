@@ -1,6 +1,6 @@
 require 'active_record'
 require 'yaml'
-require_relative 'base_concern.rb'
+require_relative 'production/base_concern.rb'
 
 class SourceTable < ActiveRecord::Base
   
